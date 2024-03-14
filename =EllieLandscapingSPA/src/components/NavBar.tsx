@@ -4,8 +4,9 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link as RouterLink } from "react-router-dom";
+import { createTheme, ThemeProvider, withStyles } from "@mui/material/styles";
+import { NavLink } from "react-router-dom";
+import Typography from "@mui/material/Typography";
 
 const pages = [
   "Home",
@@ -16,10 +17,10 @@ const pages = [
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#e6ccf7",
+      main: "#00a650",
     },
     secondary: {
-      main: "#05a84d",
+      main: "#FFFFFF",
     },
   },
   breakpoints: {
@@ -41,7 +42,7 @@ function GetLink(string_: string): string {
     case "Residential Services": {
       return "/residential";
     }
-    case "Commerical Services": {
+    case "Commercial Services": {
       return "/commercial";
     }
     case "Contact Us": {
@@ -59,25 +60,47 @@ export default function ResponsiveAppBar(): JSX.Element {
       <AppBar color="secondary" sx={{ position: "sticky" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
+            <img src="greenprologoedited.png" style={{ width: "5%" }} />
+            <Typography
+              variant="h5"
+              noWrap
+              color="primary"
+              sx={{
+                ml: 1,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".1rem",
+                textDecoration: "none",
+              }}
+            >
+              GREEN PRO
+            </Typography>
             {/* for expanded navbar buttons */}
             <Box
               sx={{
                 flexGrow: 1,
                 display: { xs: "flex" },
-                justifyContent: "center",
+                justifyContent: "right",
               }}
             >
               {pages.map((page) => (
                 <Button
-                  component={RouterLink}
+                  variant="text"
+                  component={NavLink}
                   to={GetLink(page)}
                   key={page}
                   sx={{
                     my: 1,
-                    color: "white",
+                    mx: 2,
+                    color: "primary",
                     display: { xs: "flex", sm: "inline" },
                     textAlign: "center",
                     fontSize: 18,
+                    "&.active": {
+                      textDecorationLine: "underline",
+                      fontWeight: "bold",
+                    },
                   }}
                 >
                   {page}
