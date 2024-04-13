@@ -60,6 +60,7 @@ export default function ResponsiveAppBar(): JSX.Element {
       <AppBar color="secondary" sx={{ position: "sticky" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
+            <Box sx={{ marginLeft: "5%" }}></Box>
             <img src="greenprologoedited.png" style={{ width: "5%" }} />
             <Typography
               variant="h5"
@@ -96,7 +97,8 @@ export default function ResponsiveAppBar(): JSX.Element {
                     color: "primary",
                     display: { xs: "flex", sm: "inline" },
                     textAlign: "center",
-                    fontSize: 18,
+                    fontSize: 16,
+                    fontWeight: 500,
                     "&.active": {
                       textDecorationLine: "underline",
                       fontWeight: "bold",

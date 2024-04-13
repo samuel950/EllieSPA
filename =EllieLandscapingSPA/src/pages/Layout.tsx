@@ -15,8 +15,6 @@ export default function Layout(): ReactElement {
       }}
     >
       <ResponsiveAppBar />
-      <Banner />
-
       <Outlet />
     </div>
   );
