@@ -8,12 +8,7 @@ import { createTheme, ThemeProvider, withStyles } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 
-const pages = [
-  "Home",
-  "Residential Services",
-  "Commercial Services",
-  "Contact Us",
-];
+const pages = ["Home", "Contact Us"];
 const theme = createTheme({
   palette: {
     primary: {
@@ -29,7 +24,7 @@ const theme = createTheme({
       sm: 448,
       md: 900,
       lg: 1200,
-      xl: 1536,
+      xl: 3000,
     },
   },
 });
@@ -39,14 +34,8 @@ function GetLink(string_: string): string {
     case "Home": {
       return "/home";
     }
-    case "Residential Services": {
-      return "/residential";
-    }
-    case "Commercial Services": {
-      return "/commercial";
-    }
     case "Contact Us": {
-      return "/contact";
+      return "/contact-us";
     }
     default: {
       return "/home";
@@ -59,16 +48,18 @@ export default function ResponsiveAppBar(): JSX.Element {
     <ThemeProvider theme={theme}>
       <AppBar color="secondary" sx={{ position: "sticky" }}>
         <Container maxWidth="xl">
-          <Toolbar disableGutters>
-            <Box sx={{ marginLeft: "5%" }}></Box>
-            <img src="greenprologoedited.png" style={{ width: "5%" }} />
+          <Toolbar disableGutters sx={{ minWidth: "1060px" }}>
+            <img
+              src="greenprologoedited.png"
+              style={{ width: "3.5%", marginLeft: "10%" }}
+            />
             <Typography
               variant="h5"
               noWrap
               color="primary"
               sx={{
                 ml: 1,
-                display: { xs: "none", md: "flex" },
+
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: ".1rem",
@@ -98,7 +89,7 @@ export default function ResponsiveAppBar(): JSX.Element {
                     display: { xs: "flex", sm: "inline" },
                     textAlign: "center",
                     fontSize: 16,
-                    fontWeight: 500,
+                    fontWeight: 700,
                     "&.active": {
                       textDecorationLine: "underline",
                       fontWeight: "bold",
@@ -108,6 +99,44 @@ export default function ResponsiveAppBar(): JSX.Element {
                   {page}
                 </Button>
               ))}
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  width: "470px",
+                  marginLeft: "5%",
+                }}
+              >
+                <Typography
+                  align="center"
+                  noWrap
+                  color="primary"
+                  sx={{
+                    fontSize: "16px",
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".1rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  (EN/ES) 828-551-5284 | (ES) 828-243-1242
+                </Typography>
+                <Typography
+                  align="center"
+                  noWrap
+                  color="primary"
+                  sx={{
+                    fontSize: "16px",
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".1rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  greenprolandscaping0@gmail.com
+                </Typography>
+              </Box>
             </Box>
           </Toolbar>
         </Container>
